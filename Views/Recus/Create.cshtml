@@ -1,0 +1,86 @@
+﻿@model RecuPj.Models.Recu  
+ 
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Recu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nemuro" class="control-label"></label>
+                <input asp-for="Nemuro" class="form-control" />
+                <span asp-validation-for="Nemuro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Ndum" class="control-label"></label>
+                <select asp-for="Ndum" class ="form-control" asp-items="ViewBag.Ndum"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nf" class="control-label"></label>
+                <select asp-for="Nf" class ="form-control" asp-items="ViewBag.Nf"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Payeur" class="control-label"></label>
+                <input asp-for="Payeur" class="form-control" />
+                <span asp-validation-for="Payeur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModePaiement" class="control-label"> mode de paiement </label>
+                <select asp-for="ModePaiement" class="form-control" id="ana" onchange="hmza(this);">
+                    <option value="0"> choix une option </option>
+                    <option value="1"> espéce </option>
+                    <option value="2"> cheque </option>
+                </select>
+                <span asp-validation-for="ModePaiement" class="text-danger"></span>
+
+            </div>
+            <script type="text/javascript">
+
+                function hmza(tkh) {
+                    if (tkh.value == 2) 
+                    {
+                        document.getElementById('12').classList.remove('d-none');
+                    }
+                    else 
+                    {
+                        document.getElementById('12').classList.add('d-none');
+                    }
+
+                }
+            </script>
+            <div class="d-none" id="12">
+
+                <h5><a href="/Cheques/Create"> Cliquez ici pour remplir  les informations de cheque</a></h5>
+                <div class="form-group">
+                    <label asp-for="Nc" class="control-label"></label>
+                    <select asp-for="Nc" class="form-control" asp-items="ViewBag.Nc"></select>
+                </div>
+
+            </div>
+            
+             <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

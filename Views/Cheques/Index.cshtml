@@ -1,0 +1,66 @@
+﻿@model IEnumerable<RecuPj.Models.Cheque>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Espace des cheque</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th> 
+                Montant Lettre
+            </th>
+            <th>
+                Montant Chiffres
+            </th>
+            <th>
+              Date
+            </th>
+            <th>
+               Lieu
+            </th>
+            <th>
+               Beneficiare
+            </th>
+            <th>
+             Banque
+            </th>
+            <th>Changements </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontantLettre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontantChiffres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Beneficiare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BanqueNavigation.Na)
+            </td>
+            <td class="text-danger">
+                    <a asp-action="Edit" asp-route-id="@item.Ncheque" class="text-danger">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Ncheque" class="text-danger">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Ncheque" class="text-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a href="/Recus/Create"> Back to Create Recu</a>

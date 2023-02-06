@@ -1,0 +1,39 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  
+}
+
+body {
+ 
+  margin-bottom: 60px;
+}
+ul{
+    color : #fcfccc;
+}
+header{
+
+    color:#4a4444;
+}
+table 
+{
+
+    color: black;
+ 
+}
+thead
+{
+    color: #808080;
+    Background-color:#84b7ee;
+    text-align:center;
+}  

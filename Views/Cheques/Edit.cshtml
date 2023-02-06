@@ -1,0 +1,59 @@
+﻿@model RecuPj.Models.Cheque
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Cheque</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Ncheque" />
+            <div class="form-group">
+                <label asp-for="MontantLettre" class="control-label"></label>
+                <input asp-for="MontantLettre" class="form-control" />
+                <span asp-validation-for="MontantLettre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MontantChiffres" class="control-label"></label>
+                <input asp-for="MontantChiffres" class="form-control" />
+                <span asp-validation-for="MontantChiffres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lieu" class="control-label"></label>
+                <input asp-for="Lieu" class="form-control" />
+                <span asp-validation-for="Lieu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beneficiare" class="control-label"></label>
+                <input asp-for="Beneficiare" class="form-control" />
+                <span asp-validation-for="Beneficiare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Banque" class="control-label"></label>
+                <select asp-for="Banque" class="form-control" asp-items="ViewBag.Banque"></select>
+                <span asp-validation-for="Banque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

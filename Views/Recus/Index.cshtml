@@ -1,0 +1,69 @@
+﻿@model IEnumerable<RecuPj.Models.Recu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Liste des Reçus</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+               Mode De Paiement 
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payeur)
+            </th>
+            <th>
+               Numéro  De Cheque
+            </th>
+            <th>
+                Numéro de Demandes
+            </th>
+            <th>
+                Numéro  De Facture
+            </th>
+            <th>Changements </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModePaiement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payeur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NcNavigation.Ncheque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NdumNavigation.Ndum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NfNavigation.Nfacture)
+                
+            </td>
+            <td class="text-danger na"> 
+                    <a asp-action="Edit" asp-route-id="@item.Nemuro" class="text-danger">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Nemuro" class="text-danger">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Nemuro" class="text-danger">Delete</a>
+            </td>
+        </tr>
+}
+        
+    </tbody>
+</table>
+
